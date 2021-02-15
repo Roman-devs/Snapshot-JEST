@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<section
+  className="Board__Wrapper-sc-1yu0kxh-0 gmKzFA"
+>
+  <h2>
+    TestKram
+  </h2>
+  <ul>
+    <li>
+      <section
+        className="Todo__Wrapper-sc-1u29sm1-0 hwKVuW"
+      >
+        <span
+          className="Todo__Description-sc-1u29sm1-1 bkfpda"
+        >
+          asodh
+        </span>
+        <button
+          className="sc-bdfBwQ dxYAvz"
+          onClick={[Function]}
+        >
+          Delete
+        </button>
+      </section>
+    </li>
+    <li>
+      <section
+        className="Todo__Wrapper-sc-1u29sm1-0 hwKVuW"
+      >
+        <span
+          className="Todo__Description-sc-1u29sm1-1 bkfpda"
+        >
+          kjdkdjkd
+        </span>
+        <button
+          className="sc-bdfBwQ dxYAvz"
+          onClick={[Function]}
+        >
+          Delete
+        </button>
+      </section>
+    </li>
+  </ul>
+</section>
+`;
