@@ -1,8 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render correctly 1`] = `
+.c3 {
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  padding: 4px;
+  background: none;
+  color: var(--accent);
+}
+
+.c3:hover {
+  box-shadow: 2px 2px 4px #666;
+}
+
+.c3:active {
+  box-shadow: 1px 1px 4px #666;
+}
+
+.c3:disabled {
+  cursor: default;
+  border-color: #666;
+  background: #666;
+  color: white;
+  box-shadow: none;
+}
+
+.c1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 8px;
+}
+
+.c2 {
+  grid-column: span 2;
+  font-weight: 600;
+}
+
+.c0 ul {
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-gap: 20px;
+}
+
 <section
-  className="Board__Wrapper-sc-1yu0kxh-0 gmKzFA"
+  className="c0"
 >
   <h2>
     TestKram
@@ -10,15 +52,15 @@ exports[`should render correctly 1`] = `
   <ul>
     <li>
       <section
-        className="Todo__Wrapper-sc-1u29sm1-0 hwKVuW"
+        className="c1"
       >
         <span
-          className="Todo__Description-sc-1u29sm1-1 bkfpda"
+          className="c2"
         >
           asodh
         </span>
         <button
-          className="sc-bdfBwQ dxYAvz"
+          className="c3"
           onClick={[Function]}
         >
           Delete
@@ -27,15 +69,15 @@ exports[`should render correctly 1`] = `
     </li>
     <li>
       <section
-        className="Todo__Wrapper-sc-1u29sm1-0 hwKVuW"
+        className="c1"
       >
         <span
-          className="Todo__Description-sc-1u29sm1-1 bkfpda"
+          className="c2"
         >
           kjdkdjkd
         </span>
         <button
-          className="sc-bdfBwQ dxYAvz"
+          className="c3"
           onClick={[Function]}
         >
           Delete

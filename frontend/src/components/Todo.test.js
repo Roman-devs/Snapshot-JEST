@@ -1,6 +1,7 @@
 import React from "react";
 import renderer from 'react-test-renderer';
 import Board from "./Board";
+import "jest-styled-components"
 
 it('should render correctly', () => {
     const totoTest = [
