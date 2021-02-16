@@ -1,4 +1,4 @@
-import {getByRole, getByText, render, screen} from '@testing-library/react'
+import {fireEvent, getByRole, getByText, render, screen} from '@testing-library/react'
 import Board from "./Board";
 import Todo from "./Todo";
 
@@ -27,12 +27,11 @@ test("Should show other Title", () => {
 })
 
 test("Should show description", () => {
-    const toDoData = {description: "Hello There!", status: "OPEN"};
+    const toDoData = {description: "Hello There!", status: "OPEN", id:"123123"};
     const renderedObject = render(<Todo todo={toDoData} onAdvance={() => console.log("Hi1")}
                                         onDelete={() => console.log("Whoohoo")}/>)
     const actual = renderedObject.getByText("Hello There!" , {exact:true})
     expect(actual).toBeInTheDocument();
-
 })
 
 test("Should find header level 2 element in Board", ()=> {
@@ -44,4 +43,13 @@ test("Should find header level 2 element in Board", ()=> {
 
 })
 
-test("Button Function Jest")
+test("Button Function Jest", ()=> {
+    const mock = jest.fn()
+    //
+    const toDoData = {description: "Hello There!", status: "OPEN", id:"123123"};
+    const renderedObject = render(<Todo todo={toDoData} onAdvance={() => console.log("Hi1")}
+                                        onDelete={mock}/>)
+    const deleteButtonElement = renderedObject.getByText("Delete");
+    fireEvent.click(deleteButtonElement);
+    expect(mock).toHaveBeenCalledTimes(1);
+})
