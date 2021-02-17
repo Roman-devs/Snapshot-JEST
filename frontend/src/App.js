@@ -11,9 +11,15 @@ import {
     Route,
     Link
 } from "react-router-dom";
+import {createMuiTheme, makeStyles, ThemeProvider} from '@material-ui/core/styles';
 import Todo from "./components/Todo";
 import HelloThere from "./components/ToDoDetails";
+import {blue, green, orange, purple, red} from "@material-ui/core/colors";
 
+
+///////
+///////
+///////
 export default function App() {
     const [todos, setTodos] = useState([])
 
@@ -52,21 +58,42 @@ export default function App() {
     return (
         <Router>
 
+            <ThemeProvider theme={theme}>
 
-            <PageLayout>
-                <AppHeader/>
-                <Switch>
-                    <Route exact path="/">
-                        <Boards todos={todos} onDelete={deleteTodo} onAdvance={advanceTodo}/>
-                        <AddNewTodo onAdd={addTodo}/>
-                    </Route>
-                    <Route path="/todo/:id">
-                        <HelloThere/>
-                    </Route>
-                </Switch>
+                <PageLayout>
+                    <AppHeader/>
+                    <Switch>
+                        <Route exact path="/">
+                            <Boards todos={todos} onDelete={deleteTodo} onAdvance={advanceTodo}/>
+                            <AddNewTodo onAdd={addTodo}/>
+                        </Route>
+                        <Route path="/todo/:id">
+                            <HelloThere/>
+                        </Route>
+                    </Switch>
 
-            </PageLayout>
+                </PageLayout>
+            </ThemeProvider>
 
         </Router>
     )
 }
+//////
+//////
+//////
+const theme = createMuiTheme({
+    status: {
+        palette: {
+            primary: green,
+        },
+        danger: orange[500],
+        primary: {
+            // Purple and green play nicely together.
+            main: purple[500],
+        },
+        secondary: {
+            // Purple and green play nicely together.
+            main: red[500],
+        },
+    },
+});

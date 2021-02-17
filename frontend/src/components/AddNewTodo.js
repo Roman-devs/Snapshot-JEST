@@ -1,33 +1,33 @@
-import { useState } from 'react'
+import {useState} from 'react'
 import styled from 'styled-components/macro'
 import Button from './Button'
 
-export default function AddNewTodo({ onAdd }) {
-  const [description, setDescription] = useState('')
+export default function AddNewTodo({onAdd}) {
+    const [description, setDescription] = useState('')
 
-  const hasDescription = description.length > 0
+    const hasDescription = description.length > 0
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    if (!hasDescription) {
-      return
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        if (!hasDescription) {
+            return
+        }
+        onAdd(description)
+        setDescription('')
     }
-    onAdd(description)
-    setDescription('')
-  }
 
-  return (
-    <Wrapper onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={description}
-        onChange={(event) => setDescription(event.target.value)}
-      />
-      <Button primary disabled={!hasDescription}>
-        Add
-      </Button>
-    </Wrapper>
-  )
+    return (
+        <Wrapper onSubmit={handleSubmit}>
+            <input
+                type="text"
+                value={description}
+                onChange={(event) => setDescription(event.target.value)}
+            />
+            <Button primary disabled={!hasDescription}>
+                Add
+            </Button>
+        </Wrapper>
+    )
 }
 
 const Wrapper = styled.form`

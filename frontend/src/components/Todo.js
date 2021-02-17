@@ -9,14 +9,14 @@ export default function Todo({todo, onDelete, onAdvance, detailView}) {
             <Description>{todo.description}</Description>
             {!detailView && (
                 <div>
-                <Button onClick={() => onDelete(todo)}>Delete</Button>
-                <Button primary component={Link} to={`/todo/${todo.id}`}>
+                <Button color="secondary" onClick={() => onDelete(todo)}>Delete</Button>
+                <Button color="primary" component={Link} to={`/todo/${todo.id}`}>
                 Details
                 </Button>
                 </div>
                     )}
             {onAdvance && (
-                <Button primary onClick={() => onAdvance(todo)}>
+                <Button color="primary" onClick={() => onAdvance(todo)}>
                     Advance
                 </Button>
             )}
