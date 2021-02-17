@@ -48,4 +48,9 @@ public class TodoController {
     public void deleteTodo(@PathVariable String id){
         todoService.deleteTodo(id);
     }
+
+    @GetMapping("{id}")
+    public Todo getById(@PathVariable String id){
+        return todoService.getById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Item not found"));
+    }
 }

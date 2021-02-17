@@ -1,18 +1,29 @@
 import styled from 'styled-components/macro'
-import Button from './Button'
+// import Button from './Button'
+import {Link} from "react-router-dom";
+import {Button, ButtonGroup} from "@material-ui/core";
 
-export default function Todo({ todo, onDelete, onAdvance }) {
-  return (
-    <Wrapper>
-      <Description>{todo.description}</Description>
-      <Button onClick={() => onDelete(todo)}>Delete</Button>
-      {onAdvance && (
-        <Button primary onClick={() => onAdvance(todo)}>
-          Advance
-        </Button>
-      )}
-    </Wrapper>
-  )
+export default function Todo({todo, onDelete, onAdvance, detailView}) {
+    return (
+        <Wrapper>
+            <Description>{todo.description}</Description>
+            {!detailView && (
+                <div>
+                <Button onClick={() => onDelete(todo)}>Delete</Button>
+                <Button primary component={Link} to={`/todo/${todo.id}`}>
+                Details
+                </Button>
+                </div>
+                    )}
+            {onAdvance && (
+                <Button primary onClick={() => onAdvance(todo)}>
+                    Advance
+                </Button>
+            )}
+
+
+        </Wrapper>
+    )
 }
 
 const Wrapper = styled.section`
